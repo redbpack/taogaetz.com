@@ -1,1 +1,2 @@
 preview labeled smoke test
+preview labeled smoke test 2
