@@ -1,1 +1,2 @@
 preview vibecheck domain smoke test
+preview vibecheck domain smoke test 2
