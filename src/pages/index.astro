@@ -1,0 +1,190 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const projects = [
+  {
+    name: 'ChefBible',
+    tagline: 'Kitchen operations SaaS',
+    description: 'API-first backend for deterministic recipe costing and kitchen management. Five-tier RBAC, QR code onboarding, append-only audit trail, full test coverage. Deployed at Birbante, Montreal.',
+    tags: ['TypeScript', 'Node.js', 'SvelteKit', 'Drizzle ORM', 'SQLite', 'Docker'],
+    status: 'PROD',
+    url: null,
+  },
+  {
+    name: 'Homelab',
+    tagline: 'Self-hosted infrastructure',
+    description: 'Proxmox cluster with ZFS, GPU passthrough for local LLM inference, Cloudflare/Traefik edge layer, and full observability via Grafana, Prometheus, and Loki.',
+    tags: ['Proxmox', 'Docker', 'Traefik', 'Grafana', 'Tailscale'],
+    status: 'LIVE',
+    url: null,
+  },
+  {
+    name: 'redbackpack',
+    tagline: 'Productized web studio',
+    description: 'Freelance agency delivering production WordPress/WooCommerce builds for local businesses. Handled a full business email compromise incident response — DNS hardening, payment controls, security audit.',
+    tags: ['WordPress', 'WooCommerce', 'Cloudflare', 'Linux'],
+    status: 'ACTIVE',
+    url: 'https://redbackpack.ca',
+  },
+];
+
+const stack = [
+  { category: 'Frontend',       items: ['SvelteKit', 'Astro', 'Tailwind CSS'] },
+  { category: 'Backend',        items: ['Node.js', 'Hono', 'Bun', 'REST / tRPC'] },
+  { category: 'Databases',      items: ['SQLite', 'Turso', 'Drizzle ORM', 'Prisma'] },
+  { category: 'Infrastructure', items: ['Docker', 'Proxmox', 'Traefik', 'Cloudflare'] },
+  { category: 'Monitoring',     items: ['Grafana', 'Prometheus', 'Loki'] },
+  { category: 'AI / ML',        items: ['Local LLM inference', 'VLMs', 'Qdrant', 'vLLM'] },
+];
+---
+
+<Layout>
+  <!-- Nav -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-[#130b06] border-b-2 border-[#3d2316]">
+    <div class="max-w-4xl mx-auto px-6 h-11 flex items-center justify-between font-mono text-sm">
+      <span class="text-[#d4502a] font-bold">tao gaetz</span>
+      <div class="flex items-center">
+        <a href="#work"  class="px-4 h-11 flex items-center text-[#8a6a52] hover:text-[#130b06] hover:bg-[#eddcbc] transition-colors border-l-2 border-[#3d2316]">work</a>
+        <a href="#stack" class="px-4 h-11 flex items-center text-[#8a6a52] hover:text-[#130b06] hover:bg-[#eddcbc] transition-colors border-l-2 border-[#3d2316]">stack</a>
+        <a href="mailto:tao@taogaetz.com" class="px-4 h-11 flex items-center text-[#130b06] bg-[#d4502a] font-bold border-l-2 border-[#3d2316] hover:bg-[#b83e1e] transition-colors">contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="max-w-4xl mx-auto px-6 pt-20 sm:pt-28 pb-16">
+    <div class="border-2 border-[#5c3a28] shadow-[6px_6px_0px_#d4502a] p-8 mb-10 bg-[#1a0e07]">
+      <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-6">
+
+        <div class="flex-shrink-0 w-fit sm:order-2">
+          <div class="border-2 border-[#5c3a28] shadow-[4px_4px_0px_#c8922a] w-fit">
+            <img src="/headshot.jpg" alt="Tao Gaetz" class="w-24 h-24 sm:w-32 sm:h-32 object-cover grayscale block" />
+          </div>
+          <div class="font-mono text-xs text-[#4a2c1a] mt-1 text-center">tao.jpg</div>
+        </div>
+
+        <div class="sm:order-1">
+          <h1 class="font-mono text-5xl sm:text-6xl font-bold tracking-tight text-[#eddcbc] mb-1 leading-none uppercase">
+            TAO GAETZ
+          </h1>
+          <p class="font-mono text-base text-[#d4502a] mb-6">software developer — montreal, qc</p>
+
+          <p class="font-mono text-sm text-[#8a6a52] leading-relaxed max-w-md mb-8">
+            Self-taught developer. I build production software, run my own infrastructure, and ship things that actually work. Looking to join a team that moves fast and builds seriously.
+          </p>
+
+          <div class="flex flex-wrap gap-3">
+            <a href="https://github.com/taogaetz" target="_blank" rel="noopener"
+              class="font-mono text-sm px-4 py-2 border-2 border-[#5c3a28] text-[#eddcbc] hover:bg-[#eddcbc] hover:text-[#130b06] hover:border-[#eddcbc] transition-colors shadow-[3px_3px_0px_#3d2316]">
+              GitHub
+            </a>
+            <a href="https://linkedin.com/in/taogaetz" target="_blank" rel="noopener"
+              class="font-mono text-sm px-4 py-2 border-2 border-[#5c3a28] text-[#eddcbc] hover:bg-[#eddcbc] hover:text-[#130b06] hover:border-[#eddcbc] transition-colors shadow-[3px_3px_0px_#3d2316]">
+              LinkedIn
+            </a>
+            <a href="#work"
+              class="font-mono text-sm px-4 py-2 border-2 border-[#d4502a] bg-[#d4502a] text-[#130b06] font-bold hover:bg-[#b83e1e] hover:border-[#b83e1e] transition-colors shadow-[3px_3px_0px_#7a2010]">
+              View Work →
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Info strip -->
+    <div class="grid grid-cols-1 sm:grid-cols-3 border-2 border-[#5c3a28] bg-[#1a0e07]">
+      <div class="px-5 py-4 border-b-2 sm:border-b-0 sm:border-r-2 border-[#3d2316]">
+        <div class="font-mono text-xs text-[#c8922a] uppercase tracking-widest mb-2">Background</div>
+        <div class="font-mono text-xs text-[#8a6a52] leading-relaxed">
+          Designer → Dev → Bootcamp → GCP Support → Chef de Partie → Software. Intentional.
+        </div>
+      </div>
+      <div class="px-5 py-4 border-b-2 sm:border-b-0 sm:border-r-2 border-[#3d2316]">
+        <div class="font-mono text-xs text-[#c8922a] uppercase tracking-widest mb-2">Focus</div>
+        <div class="font-mono text-xs text-[#8a6a52] leading-relaxed">
+          Full-stack web, infra, and AI-adjacent tooling. Production-first mindset.
+        </div>
+      </div>
+      <div class="px-5 py-4">
+        <div class="font-mono text-xs text-[#c8922a] uppercase tracking-widest mb-2">Currently</div>
+        <div class="font-mono text-xs text-[#8a6a52] leading-relaxed">
+          Building ChefBible, freelancing @ redbackpack, looking for a team.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Work -->
+  <section id="work" class="max-w-4xl mx-auto px-6 pb-20">
+    <div class="font-mono text-xs text-[#c8922a] uppercase tracking-widest mb-6">Work</div>
+
+    <div class="space-y-5">
+      {projects.map((p) => (
+        <div class="border-2 border-[#5c3a28] bg-[#1a0e07] shadow-[5px_5px_0px_#d4502a] hover:shadow-[5px_5px_0px_#c8922a] transition-shadow p-6">
+          <div class="flex items-start justify-between mb-3">
+            <div>
+              <h3 class="font-mono text-xl font-bold text-[#eddcbc] uppercase">{p.name}</h3>
+              <p class="font-mono text-sm text-[#c8922a]">{p.tagline}</p>
+            </div>
+            <span class="font-mono text-xs px-2 py-1 border-2 border-[#d4502a] text-[#d4502a] font-bold flex-shrink-0 mt-1">
+              {p.status}
+            </span>
+          </div>
+          <p class="font-mono text-xs text-[#8a6a52] leading-relaxed mb-4">{p.description}</p>
+          <div class="flex flex-wrap gap-2 mb-3">
+            {p.tags.map((tag) => (
+              <span class="font-mono text-xs px-2 py-0.5 border border-[#3d2316] text-[#5c3a28] hover:border-[#5c3a28] hover:text-[#8a6a52] transition-colors">
+                {tag}
+              </span>
+            ))}
+          </div>
+          {p.url && (
+            <a href={p.url} target="_blank" rel="noopener" class="font-mono text-xs text-[#d4502a] hover:text-[#c8922a] transition-colors">
+              → {p.url}
+            </a>
+          )}
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Stack -->
+  <section id="stack" class="max-w-4xl mx-auto px-6 pb-20">
+    <div class="font-mono text-xs text-[#c8922a] uppercase tracking-widest mb-6">Stack</div>
+
+    <div class="border-2 border-[#5c3a28] bg-[#1a0e07] shadow-[5px_5px_0px_#c8922a]">
+      {stack.map((s, i) => (
+        <div class={`flex items-start gap-6 px-6 py-4 font-mono ${i < stack.length - 1 ? 'border-b-2 border-[#261409]' : ''}`}>
+          <div class="text-xs text-[#c8922a] uppercase tracking-widest w-28 flex-shrink-0 pt-0.5">{s.category}</div>
+          <div class="flex flex-wrap gap-x-4 gap-y-1">
+            {s.items.map((item) => (
+              <span class="text-xs text-[#8a6a52]">{item}</span>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="max-w-4xl mx-auto px-6 pb-20">
+    <div class="border-2 border-[#5c3a28] bg-[#1a0e07] shadow-[5px_5px_0px_#d4502a] p-8">
+      <h3 class="font-mono text-2xl font-bold text-[#eddcbc] uppercase mb-2">Let's work together</h3>
+      <p class="font-mono text-xs text-[#8a6a52] mb-6 max-w-md leading-relaxed">
+        Open to full-time roles, contract work, or interesting problems. Montreal-based. Remote or hybrid.
+      </p>
+      <a href="mailto:tao@taogaetz.com"
+        class="inline-block font-mono text-sm px-6 py-3 bg-[#d4502a] text-[#130b06] font-bold border-2 border-[#d4502a] hover:bg-[#b83e1e] hover:border-[#b83e1e] transition-colors shadow-[3px_3px_0px_#7a2010]">
+        tao@taogaetz.com →
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t-2 border-[#3d2316] bg-[#130b06]">
+    <div class="max-w-4xl mx-auto px-6 h-10 flex items-center justify-between font-mono text-xs text-[#3d2316]">
+      <span>taogaetz.com</span>
+      <span>montreal, qc · <span class="text-[#d4502a]">available</span></span>
+    </div>
+  </footer>
+</Layout>
