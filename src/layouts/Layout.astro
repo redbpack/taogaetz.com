@@ -8,7 +8,7 @@ interface Props {
 
 const {
   title = 'Tao Gaetz — Software Developer',
-  description = 'Software developer based in Montreal. Building production software, freelancing, and making things that matter.',
+  description = 'Montreal software developer building production web software, self-hosted infrastructure, and AI-adjacent tools.',
 } = Astro.props;
 ---
 
@@ -18,6 +18,15 @@ const {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
+    <meta name="author" content="Tao Gaetz" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://taogaetz.com" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <link rel="canonical" href="https://taogaetz.com" />
     <link rel="icon" href="/favicon.ico" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -26,7 +35,6 @@ const {
       rel="stylesheet"
     />
     <title>{title}</title>
-
   </head>
   <body class="min-h-screen">
     <slot />
