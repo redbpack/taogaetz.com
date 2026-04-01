@@ -1,46 +1,28 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-const projects = [
+const links = [
+  {
+    name: 'Redbackpack',
+    tagline: 'Studio',
+    description: 'Production websites and cleanup work for small businesses.',
+    url: 'https://redbackpack.ca',
+    label: 'redbackpack.ca',
+  },
   {
     name: 'ChefBible',
-    tagline: 'Kitchen operations SaaS',
-    description: 'Kitchen operations software for deterministic recipe costing, prep control, and back-of-house workflows. API-first backend, five-tier RBAC, QR onboarding, append-only audit trail, and full test coverage. Deployed at Birbante in Montreal.',
-    tags: ['TypeScript', 'Node.js', 'SvelteKit', 'Drizzle ORM', 'SQLite', 'Docker'],
-    status: 'PROD',
-    url: null,
+    tagline: 'Product',
+    description: 'Kitchen software built from actual service pressure, not a Figma fantasy.',
+    url: 'https://chefbible.ca',
+    label: 'chefbible.ca',
   },
   {
-    name: 'Homelab',
-    tagline: 'Self-hosted infrastructure',
-    description: 'Proxmox-based homelab with ZFS, GPU passthrough for local inference, Cloudflare and Traefik at the edge, and full observability through Grafana, Prometheus, and Loki.',
-    tags: ['Proxmox', 'Docker', 'Traefik', 'Grafana', 'Tailscale'],
-    status: 'LIVE',
-    url: null,
+    name: 'GitHub',
+    tagline: 'Code',
+    description: 'Public repos, experiments, and the parts worth showing.',
+    url: 'https://github.com/taogaetz',
+    label: 'github.com/taogaetz',
   },
-  {
-    name: 'redbackpack',
-    tagline: 'Productized web studio',
-    description: 'Consulting studio shipping production web builds for local businesses — Astro sites, WordPress and WooCommerce builds, managed hosting, and operational cleanup when things get messy.',
-    tags: ['Astro', 'WordPress', 'WooCommerce', 'Cloudflare', 'Linux'],
-    status: 'ACTIVE',
-    url: 'https://redbackpack.ca',
-    repos: [
-      { label: 'redbackpack.ca', url: 'https://github.com/redbpack/redbackpack.ca', private: true },
-      { label: 'chefbible', url: 'https://github.com/redbpack/chefbible', private: true },
-      { label: 'vibecheck', url: 'https://github.com/redbpack/vibecheck', private: true },
-      { label: 'taogaetz.com', url: 'https://github.com/redbpack/taogaetz.com', private: false },
-    ],
-  },
-];
-
-const stack = [
-  { category: 'Frontend',       items: ['SvelteKit', 'Astro', 'Tailwind CSS'] },
-  { category: 'Backend',        items: ['Node.js', 'Hono', 'Bun', 'REST / tRPC'] },
-  { category: 'Databases',      items: ['SQLite', 'Turso', 'Drizzle ORM', 'Prisma'] },
-  { category: 'Infrastructure', items: ['Docker', 'Proxmox', 'Traefik', 'Cloudflare'] },
-  { category: 'Monitoring',     items: ['Grafana', 'Prometheus', 'Loki'] },
-  { category: 'AI / ML',        items: ['Local LLM inference', 'VLMs', 'Qdrant', 'vLLM'] },
 ];
 ---
 
@@ -53,8 +35,7 @@ const stack = [
     <div class="max-w-4xl mx-auto px-6 h-11 flex items-center justify-between font-mono text-sm">
       <a href="#top" class="text-[#d4502a] font-bold hover:text-[#eddcbc] transition-colors">tao gaetz</a>
       <div class="flex items-center">
-        <a href="#work" class="px-4 h-11 flex items-center text-[#8a6a52] hover:text-[#130b06] hover:bg-[#eddcbc] transition-colors border-l-2 border-[#3d2316]">work</a>
-        <a href="#stack" class="px-4 h-11 flex items-center text-[#8a6a52] hover:text-[#130b06] hover:bg-[#eddcbc] transition-colors border-l-2 border-[#3d2316]">stack</a>
+        <a href="#links" class="px-4 h-11 flex items-center text-[#8a6a52] hover:text-[#130b06] hover:bg-[#eddcbc] transition-colors border-l-2 border-[#3d2316]">links</a>
         <a href="mailto:tao@taogaetz.com" class="px-4 h-11 flex items-center text-[#130b06] bg-[#d4502a] font-bold border-l-2 border-[#3d2316] hover:bg-[#b83e1e] transition-colors">contact</a>
       </div>
     </div>
@@ -90,9 +71,9 @@ const stack = [
                 class="font-mono text-sm px-4 py-2 border-2 border-[#5c3a28] text-[#eddcbc] hover:bg-[#eddcbc] hover:text-[#130b06] hover:border-[#eddcbc] transition-colors shadow-[3px_3px_0px_#3d2316]">
                 LinkedIn
               </a>
-              <a href="#work"
+              <a href="#links"
                 class="font-mono text-sm px-4 py-2 border-2 border-[#d4502a] bg-[#d4502a] text-[#130b06] font-bold hover:bg-[#b83e1e] hover:border-[#b83e1e] transition-colors shadow-[3px_3px_0px_#7a2010]">
-                View Work →
+                View Links →
               </a>
             </div>
           </div>
@@ -109,77 +90,38 @@ const stack = [
         <div class="px-5 py-4 border-b-2 sm:border-b-0 sm:border-r-2 border-[#3d2316]">
           <h2 class="font-mono text-xs text-[#c8922a] uppercase tracking-widest mb-2">Focus</h2>
           <p class="font-mono text-xs text-[#8a6a52] leading-relaxed">
-            Full-stack web, infrastructure, and AI-adjacent tooling with a production-first mindset.
+            Shipping useful software, strong product taste, and clean execution.
           </p>
         </div>
         <div class="px-5 py-4">
           <h2 class="font-mono text-xs text-[#c8922a] uppercase tracking-widest mb-2">Currently</h2>
           <p class="font-mono text-xs text-[#8a6a52] leading-relaxed">
-            Building ChefBible, running Redbackpack, and looking for the right team.
+            Building ChefBible, running Redbackpack, and open to the right team.
           </p>
         </div>
       </section>
     </header>
 
-    <section id="work" class="max-w-4xl mx-auto px-6 pb-20" aria-labelledby="work-heading">
-      <h2 id="work-heading" class="font-mono text-xs text-[#c8922a] uppercase tracking-widest mb-6">Work</h2>
+    <section id="links" class="max-w-4xl mx-auto px-6 pb-20" aria-labelledby="links-heading">
+      <h2 id="links-heading" class="font-mono text-xs text-[#c8922a] uppercase tracking-widest mb-6">Links</h2>
 
       <div class="space-y-5">
-        {projects.map((p) => (
+        {links.map((link) => (
           <article class="border-2 border-[#5c3a28] bg-[#1a0e07] shadow-[5px_5px_0px_#d4502a] hover:shadow-[5px_5px_0px_#c8922a] transition-shadow p-6">
             <div class="flex items-start justify-between mb-3 gap-4">
               <div>
-                {p.url
-                  ? <h3><a href={p.url} target="_blank" rel="noopener noreferrer" class="font-mono text-xl font-bold text-[#eddcbc] uppercase hover:text-[#d4502a] transition-colors">{p.name}</a></h3>
-                  : <h3 class="font-mono text-xl font-bold text-[#eddcbc] uppercase">{p.name}</h3>
-                }
-                <p class="font-mono text-sm text-[#c8922a]">{p.tagline}</p>
+                <h3>
+                  <a href={link.url} target="_blank" rel="noopener noreferrer" class="font-mono text-xl font-bold text-[#eddcbc] uppercase hover:text-[#d4502a] transition-colors">{link.name}</a>
+                </h3>
+                <p class="font-mono text-sm text-[#c8922a]">{link.tagline}</p>
               </div>
-              <span class="font-mono text-xs px-2 py-1 border-2 border-[#d4502a] text-[#d4502a] font-bold flex-shrink-0 mt-1">
-                {p.status}
-              </span>
+              <a href={link.url} target="_blank" rel="noopener noreferrer" class="font-mono text-xs px-2 py-1 border-2 border-[#d4502a] text-[#d4502a] font-bold flex-shrink-0 mt-1 hover:bg-[#d4502a] hover:text-[#130b06] transition-colors">
+                Visit →
+              </a>
             </div>
-            <p class="font-mono text-xs text-[#8a6a52] leading-relaxed mb-4">{p.description}</p>
-            <ul class="flex flex-wrap gap-2 mb-3" aria-label={`${p.name} technologies`}>
-              {p.tags.map((tag) => (
-                <li class="font-mono text-xs px-2 py-0.5 border border-[#3d2316] text-[#5c3a28] hover:border-[#5c3a28] hover:text-[#8a6a52] transition-colors list-none">
-                  {tag}
-                </li>
-              ))}
-            </ul>
-            {p.repos && (
-              <div class="mt-3">
-                <p class="font-mono text-[10px] uppercase tracking-widest text-[#4a2c1a] mb-2">Project surface</p>
-                <ul class="flex flex-wrap gap-3" aria-label={`${p.name} repositories`}>
-                  {p.repos.map((r) => (
-                    <li class="list-none">
-                      <a href={r.url} target="_blank" rel="noopener noreferrer"
-                        class={`font-mono text-xs px-2 py-0.5 border transition-colors ${r.private ? 'border-[#2a1a0e] text-[#3d2316] hover:border-[#3d2316] hover:text-[#5c3a28]' : 'border-[#3d2316] text-[#5c3a28] hover:border-[#5c3a28] hover:text-[#8a6a52]'}`}>
-                        ⌥ {r.label}{r.private ? ' 🔒' : ''}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
+            <p class="font-mono text-xs text-[#8a6a52] leading-relaxed mb-4">{link.description}</p>
+            <p class="font-mono text-[10px] uppercase tracking-widest text-[#4a2c1a]">{link.label}</p>
           </article>
-        ))}
-      </div>
-    </section>
-
-    <section id="stack" class="max-w-4xl mx-auto px-6 pb-20" aria-labelledby="stack-heading">
-      <h2 id="stack-heading" class="font-mono text-xs text-[#c8922a] uppercase tracking-widest mb-6">Stack</h2>
-
-      <div class="border-2 border-[#5c3a28] bg-[#1a0e07] shadow-[5px_5px_0px_#c8922a]">
-        {stack.map((s, i) => (
-          <div class={`flex items-start gap-6 px-6 py-4 font-mono ${i < stack.length - 1 ? 'border-b-2 border-[#261409]' : ''}`}>
-            <h3 class="text-xs text-[#c8922a] uppercase tracking-widest w-28 flex-shrink-0 pt-0.5">{s.category}</h3>
-            <ul class="flex flex-wrap gap-x-4 gap-y-1" aria-label={`${s.category} technologies`}>
-              {s.items.map((item) => (
-                <li class="text-xs text-[#8a6a52] list-none">{item}</li>
-              ))}
-            </ul>
-          </div>
         ))}
       </div>
     </section>
